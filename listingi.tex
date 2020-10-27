@@ -1,0 +1,225 @@
+\chapter{Listingi kodu}
+
+Podstawowym środowiskiem wyświetlania kodu w LaTeX-u jest \texttt{verbatim}, który generuje wyjściowy tekst czcionką o stałej szerokości, bez kolorowania składni.
+
+\begin{verbatim}
+/*
+java
+multiline
+comment
+*/
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+
+        float first = 1.20f, second = 2.45f;
+
+        System.out.println("--Before swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second); // single line comment
+
+        // Value of first is assigned to temporary
+        float temporary = first;
+
+        // Value of second is assigned to first
+        first = second;
+
+        // Value of temporary (which contains the initial value of first) is assigned to second
+        second = temporary;
+
+        System.out.println("--After swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+    }
+}
+\end{verbatim}
+
+Kolejnym rodzajem listingów jest \texttt{lstlisting}. Bez żadnych parametrów zachowuje się bardzo podobnie do środowiska \texttt{verbatim}.
+
+\begin{lstlisting}
+/*
+java
+multiline
+comment
+*/
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+
+        float first = 1.20f, second = 2.45f;
+
+        System.out.println("--Before swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second); // single line comment
+
+        // Value of first is assigned to temporary
+        float temporary = first;
+
+        // Value of second is assigned to first
+        first = second;
+
+        // Value of temporary (which contains the initial value of first) is assigned to second. This is supposed to be very long comment or line of the code to show that it can be wrapped by the LaTeX.
+        second = temporary;
+
+        System.out.println("--After swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+    }
+}
+\end{lstlisting}
+
+Sposób działania środowiska \texttt{lstlisting} można zmienić za pomocą parametrów np. \verb|\begin{lstlisting}[language=Java]|
+
+\begin{lstlisting}[language=Java]
+/*
+java
+multiline
+comment
+*/
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+
+        float first = 1.20f, second = 2.45f;
+
+        System.out.println("--Before swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second); // single line comment
+
+        // Value of first is assigned to temporary
+        float temporary = first;
+
+        // Value of second is assigned to first
+        first = second;
+
+        // Value of temporary (which contains the initial value of first) is assigned to second. This is supposed to be very long comment or line of the code to show that it can be wrapped by the LaTeX.
+        second = temporary;
+
+        System.out.println("--After swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+    }
+}
+\end{lstlisting}
+
+Środowisko \texttt{listings} oferuje możliwość zaimportowania kodu wprost z pliku, zrobić to można np. poleceniem \verb|\lstinputlisting[language=Java]{plik.java}|.
+
+\lstinputlisting[language=Java]{plik.java}
+
+W celu zmiany parametrów wyświetlania, posłużyć się można poniższym przykładem.
+
+\begin{lstlisting}
+\usepackage{listings}
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+\end{lstlisting}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+\lstinputlisting[language=Java]{plik.java}
+
+Warto przyjrzeć się też funkcjonalności pozwalającej na wyświetlanie tylko wybranych linijek kodu.
+
+\lstinputlisting[language=Java, linerange={12-14,22-23}]{plik.java}
+
+Inne środowisko, jednakże nie tak popularne jak \texttt{lstlisting}, to \texttt{minted}. W swojej implementacji wykorzystuje on bibliotekę pythonową \texttt{Pygments}, która obsługuje ponad 300 języków programowania.
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=bg,
+fontsize=\footnotesize,
+linenos,
+breaklines
+]{java}
+/*
+java
+multiline
+comment
+*/
+public class SwapNumbers {
+
+    public static void main(String[] args) {
+
+        float first = 1.20f, second = 2.45f;
+
+        System.out.println("--Before swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second); // single line comment
+
+        // Value of first is assigned to temporary
+        float temporary = first;
+
+        // Value of second is assigned to first
+        first = second;
+
+        // Value of temporary (which contains the initial value of first) is assigned to second. This is supposed to be very long comment or line of the code to show that it can be wrapped by the LaTeX.
+        second = temporary;
+
+        System.out.println("--After swap--");
+        System.out.println("First number = " + first);
+        System.out.println("Second number = " + second);
+    }
+}
+\end{minted}
+
+Tak jak w przypadku \texttt{lstlisting}, środowisko \texttt{minted} pozwala również na importowanie kodu wprost z pliku.
+
+\inputminted[firstline=2, lastline=12]{java}{plik.java}
