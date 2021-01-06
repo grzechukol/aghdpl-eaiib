@@ -96,23 +96,20 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \vspace*{2mm}
 
-{\sffamily{\large{\bfseries{\scshape Akademia G\'{o}rniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}}}
+{\sffamily{\fontsize{13.5pt}{13.5pt}{\bfseries{\scshape Akademia G\'{o}rniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}}}
 
 \vspace*{1mm}
 
-{\small\bfseries \MakeUppercase{\@faculty}}}
-\vspace*{3mm}
-
-{\small{\MakeUppercase{\@department}}}
+{\small\bfseries \@faculty}}
 \vspace*{12mm}
 
 {\sffamily\Large \@thesistype}
-\vspace*{9mm}
+\vspace*{12mm}
 
-{\sffamily\Large\itshape \@titlePL}
+{\sffamily\large\itshape \@titlePL}
 \vspace*{1mm}
 
-{\sffamily\Large\itshape \@titleEN}
+{\sffamily\large\itshape \@titleEN}
 \vspace{\fill}
 \end{center}
 
@@ -125,26 +122,26 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \centerline{\small\sffamily Krak\'{o}w, \@date}
 
-\clearpage 
-\thispagestyle{empty} 
+% \clearpage 
+% \thispagestyle{empty} 
 
-{~~}\vspace{20mm}
+% {~~}\vspace{20mm}
 
-\clearpage \titlepage
+% \clearpage \titlepage
 
-\vspace*{15cm} \vfill
-\begin{flushright} 
-\begin{minipage}[!h]{10cm}
-{\Large\itshape \@acknowledgements}
-\end{minipage}
-\end{flushright}
+% \vspace*{15cm} \vfill
+% \begin{flushright} 
+% \begin{minipage}[!h]{10cm}
+% {\Large\itshape \@acknowledgements}
+% \end{minipage}
+% \end{flushright}
 
-\clearpage
-\thispagestyle{empty}
-\vspace*{15cm} \vfill
-\clearpage
+% \clearpage
+% \thispagestyle{empty}
+% \vspace*{15cm} \vfill
+% \clearpage
 
-\setcounter{page}{5}
+% \setcounter{page}{5}
 
 }
 
